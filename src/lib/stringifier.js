@@ -25,7 +25,7 @@ function stringify(node, prec) {
         str += stringify(left, prec);
       }
 
-      str += order[op] ? ` ${node.operator} ` : node.operator;
+      str += ` ${node.operator} `;
 
       if (right.type === 'MathExpression' && order[op] < order[right.operator]) {
         str += `(${stringify(right, prec)})`;

@@ -1,3 +1,7 @@
+
+**Fork Info**: ensures spaces before and after `*` and `/` operators, which normally wouldn't happen
+
+
 # PostCSS Calc [<img src="https://postcss.github.io/postcss/logo.svg" alt="PostCSS" width="90" height="90" align="right">][PostCSS]
 
 [![NPM Version][npm-img]][npm-url]

@@ -116,14 +116,14 @@ test(
   'should reduce additions and subtractions (4)',
   testValue,
   'calc((100vw - 50em) / 2)',
-  'calc((100vw - 50em)/2)',
+  'calc((100vw - 50em) / 2)',
 );
 
 test(
   'should reduce additions and subtractions (5)',
   testValue,
   'calc(10px - (100vw - 50em) / 2)',
-  'calc(10px - (100vw - 50em)/2)',
+  'calc(10px - (100vw - 50em) / 2)',
 );
 
 test(
@@ -201,14 +201,14 @@ test(
   'should ignore calc with css variables (1)',
   testValue,
   'calc(var(--mouseX) * 1px)',
-  'calc(var(--mouseX)*1px)',
+  'calc(var(--mouseX) * 1px)',
 );
 
 test(
   'should ignore calc with css variables (2)',
   testValue,
   'calc(10px - (100px * var(--mouseX)))',
-  'calc(10px - 100px*var(--mouseX))',
+  'calc(10px - 100px * var(--mouseX))',
 );
 
 test(
@@ -222,7 +222,7 @@ test(
   'should ignore calc with css variables (4)',
   testValue,
   'calc(10px - (100px / var(--mouseX)))',
-  'calc(10px - 100px/var(--mouseX))',
+  'calc(10px - 100px / var(--mouseX))',
 );
 
 test(
@@ -236,7 +236,7 @@ test(
   'should ignore calc with css variables (6)',
   testValue,
   'calc(var(--popupHeight) / 2)',
-  'calc(var(--popupHeight)/2)',
+  'calc(var(--popupHeight) / 2)',
 );
 
 
@@ -372,7 +372,7 @@ test(
   'should reduce substracted expression from zero (1)',
   testValue,
   'calc( 0 - (100vw - 10px) / 2 )',
-  'calc((-100vw - -10px)/2)',
+  'calc((-100vw - -10px) / 2)',
 );
 
 test(
@@ -386,7 +386,7 @@ test(
   'should reduce substracted expression from zero (3)',
   testValue,
   'calc( 0px - (100vw - 10px) * 2px )',
-  'calc((-100vw - -10px)*2px)',
+  'calc((-100vw - -10px) * 2px)',
 );
 
 test(
@@ -511,7 +511,7 @@ test(
   'should ignore reducing custom property',
   testCss,
   ':root { --foo: calc(var(--bar) / 8); }',
-  ':root { --foo: calc(var(--bar)/8); }',
+  ':root { --foo: calc(var(--bar) / 8); }',
 );
 
 
@@ -580,7 +580,7 @@ test(
   'should handle complex calculations (reduce-css-calc#45) (2)',
   testValue,
   'calc(((((100% + (2 * 30px) + 63.5px) / 0.7537) - (100vw - 60px)) / 2) + 30px)',
-  'calc(((100% + 123.5px)/0.7537 - 100vw + 60px)/2 + 30px)',
+  'calc(((100% + 123.5px) / 0.7537 - 100vw + 60px) / 2 + 30px)',
 );
 
 test(
@@ -622,7 +622,7 @@ test(
   'nested var (reduce-css-calc#50)',
   testValue,
   'calc(var(--xxx, var(--yyy)) / 2)',
-  'calc(var(--xxx, var(--yyy))/2)',
+  'calc(var(--xxx, var(--yyy)) / 2)',
 );
 
 test(
@@ -636,7 +636,7 @@ test(
   'should not throw an exception when unknow function exist in calc (#1)',
   testValue,
   'calc(unknown(#fff) * other-unknown(200px))',
-  'calc(unknown(#fff)*other-unknown(200px))',
+  'calc(unknown(#fff) * other-unknown(200px))',
 );
 
 test(
@@ -741,28 +741,28 @@ test(
   'should handle nested calc function (#9)',
   testValue,
   'calc(calc(var(--foo) + var(--bar)) * var(--baz))',
-  'calc((var(--foo) + var(--bar))*var(--baz))',
+  'calc((var(--foo) + var(--bar)) * var(--baz))',
 );
 
 test(
   'should handle nested calc function (#10)',
   testValue,
   'calc(var(--foo) * calc(var(--bar) + var(--baz)))',
-  'calc(var(--foo)*(var(--bar) + var(--baz)))',
+  'calc(var(--foo) * (var(--bar) + var(--baz)))',
 );
 
 test(
   'should handle nested calc function (#11)',
   testValue,
   'calc(calc(var(--foo) + var(--bar)) / var(--baz))',
-  'calc((var(--foo) + var(--bar))/var(--baz))',
+  'calc((var(--foo) + var(--bar)) / var(--baz))',
 );
 
 test(
   'should handle nested calc function (#12)',
   testValue,
   'calc(var(--foo) / calc(var(--bar) + var(--baz)))',
-  'calc(var(--foo)/(var(--bar) + var(--baz)))',
+  'calc(var(--foo) / (var(--bar) + var(--baz)))',
 );
 
 test(
